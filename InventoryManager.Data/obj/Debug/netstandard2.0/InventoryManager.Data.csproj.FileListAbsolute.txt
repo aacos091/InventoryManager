@@ -4,6 +4,5 @@ C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.Data\bin\Debug\
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.Data\obj\Debug\netstandard2.0\InventoryManager.Data.csprojAssemblyReference.cache
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.Data\obj\Debug\netstandard2.0\InventoryManager.Data.AssemblyInfoInputs.cache
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.Data\obj\Debug\netstandard2.0\InventoryManager.Data.AssemblyInfo.cs
-C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.Data\obj\Debug\netstandard2.0\InventoryManager.Data.csproj.CoreCompileInputs.cache
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.Data\obj\Debug\netstandard2.0\InventoryManager.Data.dll
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.Data\obj\Debug\netstandard2.0\InventoryManager.Data.pdb

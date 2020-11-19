@@ -9,7 +9,6 @@ C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\bin\De
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\bin\Debug\System.Json.xml
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\obj\Debug\InventoryManager.WinForms.csprojAssemblyReference.cache
-C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\obj\Debug\InventoryManager.WinForms.MainForm.resources
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\obj\Debug\InventoryManager.WinForms.Properties.Resources.resources
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\obj\Debug\InventoryManager.WinForms.csproj.GenerateResource.cache
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\obj\Debug\InventoryManager.WinForms.csproj.CoreCompileInputs.cache
@@ -17,3 +16,5 @@ C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\obj\De
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\obj\Debug\InventoryManager.WinForms.exe
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\obj\Debug\InventoryManager.WinForms.pdb
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\obj\Debug\InventoryManager.WinForms.csproj.Fody.CopyLocal.cache
+C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\obj\Debug\InventoryManager.WinForms.Forms.AddPlayerForm.resources
+C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\obj\Debug\InventoryManager.WinForms.Forms.MainForm.resources
