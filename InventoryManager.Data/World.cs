@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Runtime.Serialization;
 
 namespace InventoryManager.Data
 {
@@ -17,5 +18,13 @@ namespace InventoryManager.Data
             Items = new List<Item>();
         }
 
+        [OnDeserialized]
+        private void OnDeserialized(StreamingContext streaming) 
+        { 
+            foreach (Player player in Players) 
+            {
+                player.BuildInventoryFromName(Items);
+            }
+        }
     }
 }

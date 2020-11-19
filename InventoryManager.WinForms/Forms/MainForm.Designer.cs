@@ -44,8 +44,8 @@
             this.addPlayerButton = new System.Windows.Forms.Button();
             this.playersListBox = new System.Windows.Forms.ListBox();
             this.itemsTabPage = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.deleteItemButton = new System.Windows.Forms.Button();
+            this.addItemButton = new System.Windows.Forms.Button();
             this.itemsListBox = new System.Windows.Forms.ListBox();
             this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
@@ -56,6 +56,11 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.playerInventoryGroupBox = new System.Windows.Forms.GroupBox();
+            this.playerInventoryListBox = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.inventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.worldViewModelBindingSource)).BeginInit();
             this.mainTabControl.SuspendLayout();
             this.playersTabPage.SuspendLayout();
@@ -63,6 +68,8 @@
             this.itemsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).BeginInit();
             this.mainMenuStrip.SuspendLayout();
+            this.playerInventoryGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // worldViewModelBindingSource
@@ -86,6 +93,7 @@
             // 
             // playersTabPage
             // 
+            this.playersTabPage.Controls.Add(this.playerInventoryGroupBox);
             this.playersTabPage.Controls.Add(this.playerScoreTextBox);
             this.playersTabPage.Controls.Add(this.playerScoreLabel);
             this.playersTabPage.Controls.Add(this.playerHealthTextBox);
@@ -198,8 +206,8 @@
             // 
             // itemsTabPage
             // 
-            this.itemsTabPage.Controls.Add(this.button1);
-            this.itemsTabPage.Controls.Add(this.button2);
+            this.itemsTabPage.Controls.Add(this.deleteItemButton);
+            this.itemsTabPage.Controls.Add(this.addItemButton);
             this.itemsTabPage.Controls.Add(this.itemsListBox);
             this.itemsTabPage.Location = new System.Drawing.Point(4, 25);
             this.itemsTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -210,25 +218,27 @@
             this.itemsTabPage.Text = "Items";
             this.itemsTabPage.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // deleteItemButton
             // 
-            this.button1.Location = new System.Drawing.Point(87, 398);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "&Delete";
-            this.button1.UseVisualStyleBackColor = true;
+            this.deleteItemButton.Location = new System.Drawing.Point(87, 398);
+            this.deleteItemButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.deleteItemButton.Name = "deleteItemButton";
+            this.deleteItemButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteItemButton.TabIndex = 4;
+            this.deleteItemButton.Text = "&Delete";
+            this.deleteItemButton.UseVisualStyleBackColor = true;
+            this.deleteItemButton.Click += new System.EventHandler(this.DeleteItemButton_Click);
             // 
-            // button2
+            // addItemButton
             // 
-            this.button2.Location = new System.Drawing.Point(6, 398);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "&Add...";
-            this.button2.UseVisualStyleBackColor = true;
+            this.addItemButton.Location = new System.Drawing.Point(6, 398);
+            this.addItemButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addItemButton.Name = "addItemButton";
+            this.addItemButton.Size = new System.Drawing.Size(75, 23);
+            this.addItemButton.TabIndex = 3;
+            this.addItemButton.Text = "&Add...";
+            this.addItemButton.UseVisualStyleBackColor = true;
+            this.addItemButton.Click += new System.EventHandler(this.AddItemButton_Click);
             // 
             // itemsListBox
             // 
@@ -241,6 +251,7 @@
             this.itemsListBox.Size = new System.Drawing.Size(153, 388);
             this.itemsListBox.TabIndex = 0;
             this.itemsListBox.ValueMember = "Name";
+            this.itemsListBox.SelectedIndexChanged += new System.EventHandler(this.ItemsListBox_SelectedIndexChanged);
             // 
             // itemsBindingSource
             // 
@@ -310,6 +321,55 @@
             this.saveFileDialog.Filter = "World files (*.json)|*.json";
             this.saveFileDialog.Title = "Save world file";
             // 
+            // playerInventoryGroupBox
+            // 
+            this.playerInventoryGroupBox.Controls.Add(this.button1);
+            this.playerInventoryGroupBox.Controls.Add(this.button2);
+            this.playerInventoryGroupBox.Controls.Add(this.playerInventoryListBox);
+            this.playerInventoryGroupBox.Location = new System.Drawing.Point(164, 148);
+            this.playerInventoryGroupBox.Name = "playerInventoryGroupBox";
+            this.playerInventoryGroupBox.Size = new System.Drawing.Size(237, 279);
+            this.playerInventoryGroupBox.TabIndex = 11;
+            this.playerInventoryGroupBox.TabStop = false;
+            this.playerInventoryGroupBox.Text = "In&ventory";
+            // 
+            // playerInventoryListBox
+            // 
+            this.playerInventoryListBox.DataSource = this.inventoryBindingSource;
+            this.playerInventoryListBox.DisplayMember = "Name";
+            this.playerInventoryListBox.FormattingEnabled = true;
+            this.playerInventoryListBox.ItemHeight = 16;
+            this.playerInventoryListBox.Location = new System.Drawing.Point(3, 18);
+            this.playerInventoryListBox.Name = "playerInventoryListBox";
+            this.playerInventoryListBox.Size = new System.Drawing.Size(228, 228);
+            this.playerInventoryListBox.TabIndex = 0;
+            this.playerInventoryListBox.ValueMember = "Name";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(87, 251);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "&Delete";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 251);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "&Add...";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // inventoryBindingSource
+            // 
+            this.inventoryBindingSource.DataMember = "Inventory";
+            this.inventoryBindingSource.DataSource = this.playersBindingSource;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -332,6 +392,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).EndInit();
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
+            this.playerInventoryGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,8 +407,8 @@
         private System.Windows.Forms.ListBox playersListBox;
         private System.Windows.Forms.TabPage itemsTabPage;
         private System.Windows.Forms.Button deletePlayerButton;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button deleteItemButton;
+        private System.Windows.Forms.Button addItemButton;
         private System.Windows.Forms.ListBox itemsListBox;
         private System.Windows.Forms.TextBox playerHealthTextBox;
         private System.Windows.Forms.Label playerHealthLabel;
@@ -365,6 +427,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.GroupBox playerInventoryGroupBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox playerInventoryListBox;
+        private System.Windows.Forms.BindingSource inventoryBindingSource;
     }
 }
 

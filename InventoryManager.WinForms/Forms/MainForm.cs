@@ -51,6 +51,7 @@ namespace InventoryManager.WinForms.Forms
                 }
             }
         }
+
         private void PlayersListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             deletePlayerButton.Enabled = playersListBox.SelectedItem != null;
@@ -62,6 +63,32 @@ namespace InventoryManager.WinForms.Forms
             {
                 ViewModel.Players.Remove((Player)playersListBox.SelectedItem);
                 playersListBox.SelectedItem = ViewModel.Players.FirstOrDefault();
+            }
+        }
+
+        private void ItemsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            deleteItemButton.Enabled = itemsListBox.SelectedItem != null;
+        }
+
+        private void AddItemButton_Click(object sender, EventArgs e)
+        {
+            using (AddItemForm addItemForm = new AddItemForm())
+            {
+                if (addItemForm.ShowDialog() == DialogResult.OK)
+                {
+                    Item item = new Item { Name = addItemForm.itemName };
+                    ViewModel.Items.Add(item);
+                }
+            }
+        }
+
+        private void DeleteItemButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Delete this item?", AssemblyTitle, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ViewModel.Items.Remove((Item)itemsListBox.SelectedItem);
+                itemsListBox.SelectedItem = ViewModel.Items.FirstOrDefault();
             }
         }
 
