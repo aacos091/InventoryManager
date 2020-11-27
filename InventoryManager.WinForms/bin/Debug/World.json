@@ -4,27 +4,50 @@
       "Name": "Jane Doe",
       "Health": 200,
       "Score": 150,
-      "Inventory": []
+      "Inventory": [
+        "Book",
+        "Lantern",
+        "Sword",
+        "Shield"
+      ],
+      "EquippedItems": {
+       "LeftHand": "Shield",
+       "RightHand": "Sword"
+	  }
     },
     {
       "Name": "John Smith",
       "Health": 250,
       "Score": 45,
-      "Inventory": []
-    },
-    {
-      "Name": "Austin Acosta",
-      "Health": 85,
-      "Score": 0,
-      "Inventory": []
+      "Inventory": [
+        "Helmet",
+        "Book"
+      ],
+      "EquippedItems": {
+       "Head": "Helmet"
+	  }
     }
   ],
   "Items": [
     {
-      "Name": "Book"
+      "Name": "Book",
+      "Weight": 10
     },
     {
-      "Name": "Lantern"
-    }
+      "Name": "Lantern",
+      "Weight": 15
+    },
+    {
+      "Name": "Shield",
+      "Weight": 50
+	},
+    {
+      "Name": "Sword",
+      "Weight": 35
+	},
+    {
+      "Name": "Helmet",
+      "Weight": 25
+	}
   ]
 }

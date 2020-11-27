@@ -19,3 +19,4 @@ C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\obj\De
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\obj\Debug\InventoryManager.WinForms.Forms.AddPlayerForm.resources
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\obj\Debug\InventoryManager.WinForms.Forms.MainForm.resources
 C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\obj\Debug\InventoryManager.WinForms.Forms.AddItemForm.resources
+C:\Users\Gomorrah\source\repos\InventoryManager\InventoryManager.WinForms\obj\Debug\InventoryManager.WinForms.Controls.EquippedItemControl.resources
