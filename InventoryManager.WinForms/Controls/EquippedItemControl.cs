@@ -22,11 +22,27 @@ namespace InventoryManager.WinForms.Controls
                 {
                     mPlayer = value;
                     if (mPlayer != null) 
-                    { 
-                        
+                    {
+                        var inventory = new List<Item>(mPlayer.Inventory);
+                        inventory.Insert(0, NoItem);
+
+                        equippedItemComboBox.SelectedIndexChanged -= EquippedItemComboBox_SelectedIndexChanged;
+                        equippedItemComboBox.DataSource = inventory;
+                        EquippedItem = mPlayer.EquippedItems.TryGetValue(EquipLocation, out Item equippedItem) ? equippedItem : NoItem;
+                        equippedItemComboBox.SelectedIndexChanged += EquippedItemComboBox_SelectedIndexChanged;
+                    }
+                    else 
+                    {
+                        equippedItemComboBox.DataSource = null;
                     }
                 }
             }
+        }
+
+        public Item EquippedItem 
+        {
+            get => (Item)equippedItemComboBox.SelectedItem;
+            set => equippedItemComboBox.SelectedItem = value; 
         }
 
         public EquipLocations EquipLocation
@@ -44,7 +60,25 @@ namespace InventoryManager.WinForms.Controls
             InitializeComponent();
         }
 
+        private void EquippedItemComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (mPlayer != null) 
+            {
+                Item equippedItem = EquippedItem;
+                if (equippedItem == NoItem) 
+                {
+                    mPlayer.EquippedItems.Remove(EquipLocation);
+                }
+                else 
+                {
+                    mPlayer.EquippedItems[EquipLocation] = equippedItem;
+                }
+            }
+        }
+
+        private static readonly Item NoItem = new Item() { Name = "None" };
         private Player mPlayer;
         private EquipLocations mEquipLocation;
+
     }
 }

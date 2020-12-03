@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Reflection;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 using InventoryManager.Data;
+using InventoryManager.WinForms.Controls;
 using InventoryManager.WinForms.ViewModels;
 
 namespace InventoryManager.WinForms.Forms
@@ -38,6 +40,14 @@ namespace InventoryManager.WinForms.Forms
             InitializeComponent();
             ViewModel = new WorldViewModel();
             isWorldLoaded = false;
+
+            mEquippedItemControlMap = new Dictionary<EquipLocations, EquippedItemControl>
+            {
+                { EquipLocations.LeftHand, LeftHandEquippedItemControl },
+                { EquipLocations.RightHand, RightHandEquippedItemControl },
+                { EquipLocations.Head, HeadEquippedItemControl },
+                { EquipLocations.Feet, FeetEquippedItemControl }
+            };
         }
 
         private void AddPlayerButton_Click(object sender, EventArgs e)
@@ -55,6 +65,12 @@ namespace InventoryManager.WinForms.Forms
         private void PlayersListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             deletePlayerButton.Enabled = playersListBox.SelectedItem != null;
+
+            Player selectedPlayer = playersListBox.SelectedItem as Player;
+            foreach (var control in mEquippedItemControlMap.Values)
+            {
+                control.Player = selectedPlayer;
+            }
         }
 
         private void DeletePlayerButton_Click(object sender, EventArgs e)
@@ -99,9 +115,22 @@ namespace InventoryManager.WinForms.Forms
             {
                 ViewModel.World = JsonConvert.DeserializeObject<World>(File.ReadAllText(openFileDialog.FileName));
                 ViewModel.Filename = openFileDialog.FileName;
+
+                Player selectedPlayer = playersListBox.SelectedItem as Player;
+                foreach (var control in mEquippedItemControlMap.Values) 
+                {
+                    control.Player = selectedPlayer;
+                }
+
                 isWorldLoaded = true;
             }
         }
+
+        private void closeWorldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e) => ViewModel.SaveWorld();
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -121,6 +150,7 @@ namespace InventoryManager.WinForms.Forms
 
         private WorldViewModel mViewModel;
         private bool mIsWorldLoaded;
+        private readonly Dictionary<EquipLocations, EquippedItemControl> mEquippedItemControlMap;
 
     }
 }

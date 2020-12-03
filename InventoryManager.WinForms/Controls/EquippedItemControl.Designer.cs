@@ -29,37 +29,37 @@
         private void InitializeComponent()
         {
             this.equipLocationTextBox = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.equippedItemComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // equipLocationTextBox
             // 
-            this.equipLocationTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.equipLocationTextBox.Location = new System.Drawing.Point(3, 3);
             this.equipLocationTextBox.Name = "equipLocationTextBox";
-            this.equipLocationTextBox.Size = new System.Drawing.Size(150, 22);
+            this.equipLocationTextBox.Size = new System.Drawing.Size(180, 22);
             this.equipLocationTextBox.TabIndex = 0;
             this.equipLocationTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // comboBox1
+            // equippedItemComboBox
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3, 31);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 24);
-            this.comboBox1.TabIndex = 1;
+            this.equippedItemComboBox.DisplayMember = "Name";
+            this.equippedItemComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.equippedItemComboBox.FormattingEnabled = true;
+            this.equippedItemComboBox.Location = new System.Drawing.Point(3, 31);
+            this.equippedItemComboBox.Name = "equippedItemComboBox";
+            this.equippedItemComboBox.Size = new System.Drawing.Size(180, 24);
+            this.equippedItemComboBox.TabIndex = 1;
+            this.equippedItemComboBox.SelectedIndexChanged += new System.EventHandler(this.EquippedItemComboBox_SelectedIndexChanged);
             // 
             // EquippedItemControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.equippedItemComboBox);
             this.Controls.Add(this.equipLocationTextBox);
+            this.Margin = new System.Windows.Forms.Padding(3, 3, 5, 3);
             this.Name = "EquippedItemControl";
-            this.Size = new System.Drawing.Size(156, 60);
+            this.Size = new System.Drawing.Size(186, 60);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -68,6 +68,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox equipLocationTextBox;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox equippedItemComboBox;
     }
 }

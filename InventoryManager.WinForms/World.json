@@ -11,9 +11,11 @@
         "Shield"
       ],
       "EquippedItems": {
-       "LeftHand": "Shield",
-       "RightHand": "Sword"
-	  }
+        "LeftHand": "Shield",
+        "RightHand": "Sword",
+        "Feet": "Book",
+        "Head": "Lantern"
+      }
     },
     {
       "Name": "John Smith",
@@ -24,8 +26,8 @@
         "Book"
       ],
       "EquippedItems": {
-       "Head": "Helmet"
-	  }
+        "Head": "Helmet"
+      }
     }
   ],
   "Items": [
@@ -40,14 +42,14 @@
     {
       "Name": "Shield",
       "Weight": 50
-	},
+    },
     {
       "Name": "Sword",
       "Weight": 35
-	},
+    },
     {
       "Name": "Helmet",
       "Weight": 25
-	}
+    }
   ]
 }
